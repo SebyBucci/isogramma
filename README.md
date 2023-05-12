@@ -14,3 +14,25 @@ Se il valore è maggiore di 1, significa che la lettera è ripetuta nella string
 
 Se il metodo arriva alla fine della stringa senza trovare lettere ripetute, restituisce "true", indicando che la stringa è un isogramma.
 Il metodo utilizza il metodo ToLower per convertire tutte le lettere in lettere minuscole, in modo che le lettere maiuscole e minuscole vengano trattate come uguali.
+
+Codice:
+```C#
+public static class Isogramma
+{
+    public static bool Verifica(string word)
+    {
+     var Alphabet = new int [26];
+        foreach(var Letter in word.ToLower())
+        {
+            if (Char.IsLetter(Letter))
+            {
+                Alphabet [Letter - 'a']++;
+                if (Alphabet[Letter - 'a'] > 1)
+                    return false;
+            }
+        }
+        return true;
+    }
+
+}
+```
